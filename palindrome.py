@@ -20,3 +20,23 @@ def check_palindrome(input_str: str) -> bool:
     
     :Complexity: O(n) where n is the length of the input string
     """
+
+    islen_odd = len(input_str) % 2
+    if islen_odd:
+        half = int(len(input_str) // 2)
+        check_str = ""
+        for i in range(half):
+            check_str += input_str[-1]
+            input_str = input_str[:-1]
+        if check_str == input_str[:-1]:
+            return True
+        return False
+    else:
+        half = int(len(input_str) / 2)
+        check_str = ""
+        for i in range(half):
+            check_str += input_str[-1]
+            input_str = input_str[:-1]
+        if check_str == input_str:
+            return True
+        return False
